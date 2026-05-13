@@ -27,8 +27,12 @@ app.post('/uploads', upload.single('profileImage'), (req, res) => {
   console.log(req.file);
   return res.redirect('/');
 });
-
-
+// Global error handling
+app.use((err, req, res, next) => {
+  return res.status(400).send({
+    error: err.message,
+  });
+});
 app.listen(port, () => {
   console.log(`Server is running on http://localhost:${port}`);
 });
