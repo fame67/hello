@@ -18,7 +18,7 @@ const upload = multer({ storage: storage });
 app.set('view engine', 'ejs');
 app.set('views', path.resolve('./views'));
 app.use(express.urlencoded({ extended: false }));
-
+console.log("ho ja");
 app.get('/', (req, res) => {
   res.render('homepage');
 });
