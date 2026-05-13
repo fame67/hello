@@ -27,6 +27,20 @@ app.post('/uploads', upload.single('profileImage'), (req, res) => {
   console.log(req.file);
   return res.redirect('/');
 });
+app.delete('/delete/:id', (req, res) => {
+  try {
+    const fileId = Number(req.params.id);
+
+    const fileIndex = uploadedFiles.findIndex(
+      (file) => file.id === fileId
+    );
+
+    if (fileIndex === -1) {
+      return res.status(404).send({
+        success: false,
+        message: 'File not found',
+      });
+    }
 // Global error handling
 app.use((err, req, res, next) => {
   return res.status(400).send({
