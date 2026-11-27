@@ -1,4 +1,5 @@
 import express from express;
 const app= express;
-console.log("ho ja");
-console.log("ho ja");
+for (let i=0; i<10; i++){
+  console.log(i);
+}
