@@ -19,6 +19,9 @@ app.set('view engine', 'ejs');
 app.set('views', path.resolve('./views'));
 app.use(express.urlencoded({ extended: false }));
 console.log("ho ja");
+app.patch('/',(req,res){
+  console.log('kl');
+})
 app.get('/', (req, res) => {
   res.render('homepage');
 });
